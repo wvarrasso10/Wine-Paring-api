@@ -1,0 +1,18 @@
+<p>PairingsInterface Collection</p>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body"*ngIf="dataFromServer">
+        <h5 class="card-title">Your wine pairing results</h5>
+        <p class="card-text" >
+            {{dataFromServer.pairingText}}
+        </p>
+      </div>
+      <div class="input-group">
+        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+               aria-describedby="search-addon" [(ngModel)]="foodType" />
+        <button type="button" (click)="onClickMe(foodType)" class="btn btn-outline-primary">search</button>
+      </div>
+    </div>
+  </div>
+</div>
