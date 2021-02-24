@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, pipe} from 'rxjs';
 import {PairingsInterface} from '../Classes/PairingsInterface';
+import {ProductMatchesInterface} from '../Classes/ProductMatchesInterface';
 import {tap} from 'rxjs/operators';
 const myApiKey = '44994947f82c4fe3a29eedb9a18a88a0&';
 @Injectable({

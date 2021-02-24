@@ -1,18 +1,27 @@
-<p>PairingsInterface Collection</p>
-<div class="row">
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-body"*ngIf="dataFromServer">
-        <h5 class="card-title">Your wine pairing results</h5>
-        <p class="card-text" >
-            {{dataFromServer.pairingText}}
-        </p>
-      </div>
-      <div class="input-group">
-        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-               aria-describedby="search-addon" [(ngModel)]="foodType" />
-        <button type="button" (click)="onClickMe(foodType)" class="btn btn-outline-primary">search</button>
+<section class="hero is-primary">
+  <div class="hero-body" >
+    <p class="title">
+      Pick a food to pair
+    </p>
+    <div class="input-group">
+      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+             aria-describedby="search-addon" [(ngModel)]="foodType" />
+      <button type="button" (click)="onClickMe(foodType)" class="btn btn-outline-primary">search</button>
+      <div *ngIf="dataFromServer">
+        <p class="subtitle" > Wines: </p>
+        <p> {{this.dataFromServer.pairedWines}}</p>
+        <p class="subtitle" > Description: </p>
+        <p>{{dataFromServer.pairingText}}</p>
+        <p class="subtitle" > Recommendations: </p>
+        <div *ngFor="let product of this.products">
+          <p>Title: {{product.title}}</p>
+          <p>Description: {{product.description}}</p>
+          <p>Link: <a href="{{product.link}}"> {{product.title}}</a></p>
+          <p>Price: {{product.price}}</p>
+          <p>Average Rating: {{product.averageRating}}</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
+

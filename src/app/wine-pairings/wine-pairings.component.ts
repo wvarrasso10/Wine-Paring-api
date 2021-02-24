@@ -3,6 +3,8 @@ import {PairingsService} from '../Services/pairings.service';
 import {CommonModule} from '@angular/common';
 import {PairingsInterface} from '../Classes/PairingsInterface';
 import {Subscription} from 'rxjs';
+import {ProductMatchesInterface} from '../Classes/ProductMatchesInterface';
+
 
 @Component({
   selector: 'app-wine-pairings',
@@ -10,7 +12,10 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./wine-pairings.component.css']
 })
 export class WinePairingsComponent implements OnInit {
-  dataFromServer: Subscription;
+  dataFromServer;
+  products: ProductMatchesInterface[];
+  object;
+  title;
   foodType: any;
   constructor(
     private pairingService: PairingsService,
@@ -23,6 +28,9 @@ export class WinePairingsComponent implements OnInit {
     this.dataFromServer = this.pairingService.getPairings(foodType).subscribe (
       res => {
         this.dataFromServer = res;
+        console.log(res.productMatches);
+        this.products = res.productMatches;
+        console.log(this.products);
       }
     );
   }
