@@ -1,6 +1,7 @@
 # WinePairingApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+This project uses the spoontacular api to get wine pairings for different types of food.
 
 ## Development server
 
